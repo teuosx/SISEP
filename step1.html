@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Etapa 1</title>
+    <style>
+        body {
+            background-color: #f0f8ff; /* LightSkyBlue */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .cadastro-container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 300px;
+        }
+        .cadastro-container h2 {
+            margin-top: 0;
+            text-align: center;
+            color: #333333;
+        }
+        .cadastro-form {
+            margin-top: 20px;
+        }
+        .cadastro-form label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555555;
+        }
+        .cadastro-form input[type="text"],
+        .cadastro-form input[type="tel"],
+        .cadastro-form input[type="date"],
+        .cadastro-form input[type="email"],
+        .cadastro-form select {
+            width: calc(100% - 22px); /* Considerando a largura do padding (10px em cada lado) e da borda (1px em cada lado) */
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #dddddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .cadastro-form input[type="checkbox"] {
+            margin-bottom: 15px;
+        }
+        .cadastro-form input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff; /* Primary color */
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .cadastro-form input[type="submit"]:hover {
+            background-color: #0056b3; /* Darker primary color */
+        }
+    </style>
+</head>
+<body>
+    <div class="cadastro-container">
+        <h2>Cadastro - Etapa 1</h2>
+        <form class="cadastro-form" action="step1.php" method="POST">
+            <label for="nome">Nome Completo:</label>
+            <input type="text" id="nome" name="nome" required maxlength="100" oninput="formatarNome(this)"><br>
+            <label for="telefone">Telefone:</label>
+            <input type="tel" id="telefone" name="telefone" maxlength="15" placeholder="(XX) XXXXX-XXXX" oninput="formatarTelefone(this)"><br>
+            <label for="cpf">CPF:</label>
+            <input type="text" id="cpf" name="cpf" maxlength="14" placeholder="XXX.XXX.XXX-XX" oninput="formatarCPF(this)"><br>
+            <label for="data_nascimento">Data de Nascimento:</label>
+            <input type="date" id="data_nascimento" name="data_nascimento" required><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required maxlength="100"><br>
+            <label for="curso_desejado">Curso Desejado:</label>
+            <select id="curso_desejado" name="curso_desejado">
+                <option value="Administração">Administração</option>
+                <option value="Fruticultura">Fruticultura</option>
+                <option value="Finanças">Finanças</option>
+                <option value="Desenvolvimento de Sistemas">Desenvolvimento de Sistemas</option>
+            </select><br>
+            <label for="laudo_medico">Laudo Médico:</label>
+            <input type="checkbox" id="laudo_medico" name="laudo_medico"><br>
+            <input type="submit" value="Próximo">
+        </form>
+    </div>
+    <script>
+        // Função para formatar o CPF (XXX.XXX.XXX-XX)
+        function formatarCPF(campo) {
+            var valor = campo.value.replace(/\D/g, ''); // Remove caracteres não numéricos
+            var novoValor = '';
+            if (valor.length <= 11) {
+                if (valor.length < 4) {
+                    novoValor = valor;
+                } else if (valor.length < 7) {
+                    novoValor = valor.substr(0, 3) + '.' + valor.substr(3);
+                } else if (valor.length < 10) {
+                    novoValor = valor.substr(0, 3) + '.' + valor.substr(3, 3) + '.' + valor.substr(6);
+                } else {
+                    novoValor = valor.substr(0, 3) + '.' + valor.substr(3, 3) + '.' + valor.substr(6, 3) + '-' + valor.substr(9);
+                }
+                campo.value = novoValor;
+            } else {
+                campo.value = campo.value.substr(0, 14);
+            }
+        }
+
+        // Função para formatar o número de telefone ((XX) XXXXX-YYYY)
+        function formatarTelefone(campo) {
+            var valor = campo.value.replace(/\D/g, ''); // Remove caracteres não numéricos
+            var novoValor = '';
+            if (valor.length <= 11) {
+                novoValor = '(' + valor.substr(0, 2) + ') ';
+                if (valor.length > 2) {
+                    novoValor += valor.substr(2, valor.length - 2);
+                    if (valor.length > 7) {
+                        novoValor = novoValor.substr(0, 10) + '-' + novoValor.substr(10);
+                    }
+                }
+                campo.value = novoValor;
+            } else {
+                campo.value = campo.value.substr(0, 15);
+            }
+        }
+
+        // Função para formatar o nome completo (primeira letra maiúscula)
+        function formatarNome(campo) {
+            var nome = campo.value.toLowerCase(); // Converte para minúsculas
+            nome = nome.replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase(); }); // Primeiras letras maiúsculas
+            campo.value = nome;
+        }
+    </script>
+</body>
+</html>

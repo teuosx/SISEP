@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet"></link> 
+  <title>Document</title>
+</head>
+<body>
+  <div class="tela">
+    <img class="imagemdefundo" src="livros.jpg" />
+    <div class="coluna">
+      <div class="titulologin">Login</div>
+      <div class="caixa1">
+        <form class="login-form" action="login.php" method="POST">
+        <div class="tituloemail">
+          <div class="email" ></div>
+          E-mail*</div>
+          <input type="email" name="email" id="e-mail" placeholder="Insira seu e-mail" required>
+      </div>
+      <div class="caixa2">
+          <div class="titulosenha">Senha*</div>
+        <section>          
+        <div class="senha" ></div>
+        <input type="password" name="senha" id="senha" placeholder="insira sua senha" minlength="8" required>
+          <div id="icon" onclick="showHide()"></div>
+        </section>
+        <div class="esqueceusenha"><a href="senha.html">Esqueceu sua senha?</a></div>
+      </div>
+        <div class="botaoentrar">
+            <input type="submit" name="entrar" id="entrar" value="Entrar">
+        </div>
+    </form>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

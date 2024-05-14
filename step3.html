@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Etapa 3</title>
+    <style>
+        body {
+            background-color: #f0f8ff; /* LightSkyBlue */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .cadastro-container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 300px;
+        }
+        .cadastro-container h2 {
+            margin-top: 0;
+            text-align: center;
+            color: #333333;
+        }
+        .cadastro-form {
+            margin-top: 20px;
+        }
+        .cadastro-form label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555555;
+        }
+        .cadastro-form input[type="text"],
+        .cadastro-form input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #dddddd; /* Primary color */
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .cadastro-form input[type="number"]::-webkit-inner-spin-button,
+        .cadastro-form input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        
+        .cadastro-form input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff; /* Primary color */
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .cadastro-form input[type="submit"]:hover {
+            background-color: #0056b3; /* Darker primary color */
+        }
+    </style>
+</head>
+<body>
+    <div class="cadastro-container">
+        <h2>Cadastro - Etapa 3</h2>
+        <form class="cadastro-form" action="step3.php" method="POST">
+            <label for="nota_sexto">Nota do 6º Ano:</label>
+            <input type="number" id="nota_sexto" name="nota_sexto" required min="0" max="10" step="0.01"><br>
+            <label for="nota_setimo">Nota do 7º Ano:</label>
+            <input type="number" id="nota_setimo" name="nota_setimo" required min="0" max="10" step="0.01"><br>
+            <label for="nota_oitavo">Nota do 8º Ano:</label>
+            <input type="number" id="nota_oitavo" name="nota_oitavo" required min="0" max="10" step="0.01"><br>
+            <label for="nota_nonobim1">Nota do 1º Bimestre do 9º Ano:</label>
+            <input type="number" id="nota_nonobim1" name="nota_nonobim1" required min="0" max="10" step="0.01"><br>
+            <label for="nota_nonobim2">Nota do 2º Bimestre do 9º Ano:</label>
+            <input type="number" id="nota_nonobim2" name="nota_nonobim2" required min="0" max="10" step="0.01"><br>
+            <label for="nota_nonobim3">Nota do 3º Bimestre do 9º Ano:</label>
+            <input type="number" id="nota_nonobim3" name="nota_nonobim3" required min="0" max="10" step="0.01"><br>
+            <label for="nota_nonobim4">Nota do 4º Bimestre do 9º Ano:</label>
+            <input type="number" id="nota_nonobim4" name="nota_nonobim4" min="0" max="10" step="0.01"><br>
+            <input type="submit" value="Próximo">
+        </form>
+    </div>
+</body>
+</html>
