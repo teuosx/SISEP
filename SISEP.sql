@@ -1,0 +1,1 @@
+INSERT INTO admin (nome, email, senha) VALUES ('Mateus', 'mateus@gmail.com', 'jujuba123')
