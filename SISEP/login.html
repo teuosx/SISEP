@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sisep Dashboard</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" />
+
+  <link rel="icon" href="logo.svg" type="image/svg">
+
+  <style>
+
+    * {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+   
+    .tela {
+      display: flex;
+      height: 100vh;
+      width: auto;
+      align-items: center;
+      background-color: #12593F;
+    }
+   
+    .tela .imagemdefundo {
+      display: flex;
+      justify-content: center;
+      width: calc(100vw - 500px);
+
+    }
+   
+    .tela .coluna {
+      width: 500px;
+      height: 100vh;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      align-self: stretch;
+      background-color: #ffffff;
+      display: flex;
+      position: relative;
+      border-radius: 16px 0 0 16px;
+    }
+
+    .tela .titulologin {
+      position: relative;
+      font-weight: bold;
+      color: #333333;
+      font-size: 32px;
+      display: flex;
+      align-items:flex-start;
+      margin-bottom: 32px;
+    }
+   
+    .tela .caixa1 {
+      flex-direction: column;
+      gap: 200px;
+      display: inline-flex;
+      position: relative;
+      flex: 0 0 auto;
+    }
+   
+    .tela .tituloemail {
+    width: fit-content;
+    font-weight: bolder;
+    color: #333333;
+    font-size: 16px;
+    letter-spacing: 0;
+    display: flex;
+    position: relative;
+    align-items: flex-start;
+    flex-direction: column;
+    }
+
+
+    .tela .titulosenha {
+      width: fit-content;
+      font-weight: bolder;
+      color: #333333;
+      font-size: 16px;
+      letter-spacing: 0;
+      display: flex;
+      position: relative;
+      margin-top: 24px;
+    }
+   
+    input {
+      color: #333333;
+      font-weight: #333333;
+      background-color: #f0f0f0;
+      width: 400px;
+      height: 48px;
+      border: 2px solid #333333;
+      border-radius: 16px;
+      padding-left: 16px;
+      margin-top: 12px;
+      outline: none;
+      border-style: 8px;
+    }
+   
+    .tela .caixa2 {
+      flex-direction: column;
+      justify-content: center;
+      display: inline-flex;
+      position: relative;
+      flex: 0 0 auto;
+    }
+   
+    .botaoentrar input[type="submit"] {
+      width: 160px;
+      height: 48px;
+      padding: 8px 24px;
+      background-color: #192841;
+      border-radius: 16px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      word-wrap: break-word;
+      font-weight: 500;
+      margin-left: 31.5%;
+      margin-top: 32px;
+    }
+   
+    .password-wrapper {
+      position: relative;
+    }
+
+
+    #icon {
+      position: absolute;
+      top: 50%;
+      right: 16px;
+      transform: translateY(-25%);
+      background-size: cover;
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+      z-index: 1;
+      background: url("olhofechado.svg");
+    }
+
+
+    #icon.hide {
+      background-size: cover;
+      background: url("olhoaberto.svg");
+    }
+  </style>
+</head>
+
+
+<body>
+  <div class="tela">
+    <img class="imagemdefundo" src="pro.svg" />
+    <div class="coluna">
+      <div class="titulologin">Acesse sua conta</div>
+      <div class="caixa1">
+        <form class="login-form" action="login.php" method="POST">
+          <div class="tituloemail">
+            <div class="email"></div>
+            E-mail
+            <input type="email" name="email" id="e-mail" placeholder="Insira seu e-mail" required>
+          </div>
+          <div class="caixa2">
+            <div class="titulosenha">Senha</div>
+            <div class="password-wrapper">
+              <input type="password" name="senha" id="senha" placeholder="insira sua senha" minlength="8" required>
+              <div id="icon" onclick="showHide()" class="hide"></div>
+            </div>
+          </div>
+          <div class="botaoentrar">
+            <input type="submit" name="entrar" id="entrar" value="Entrar">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    const password = document.getElementById('senha');
+    const icon = document.getElementById('icon');
+    function showHide() {
+      if (password.type === 'password') {
+        password.setAttribute('type','text');
+        icon.classList.add('hide')
+      } else {
+        password.setAttribute('type', 'password');
+        icon.classList.remove('hide')
+      }
+    }
+  </script>
+</body>
+</html>
+
+
+
