@@ -34,4 +34,4 @@ Projeto para gerenciamento de processos seletivos e cadastro de alunos. Permite 
 
 Clone o repositório:
 ```bash
-git clone https://github.com/Eduarrda7444/SISEP.git
+git clone https://github.com/teuosx/SISEP.git
